@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "212765577148",
+    "project_id": "ianalizer",
+    "storage_bucket": "ianalizer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212765577148:android:508dd29725af916503a5b9",
+        "android_client_info": {
+          "package_name": "com.example.ianalizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212765577148-nrg4bme4ps7c0vae6g4bepog9ep7fkt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmzEuNI_zWn_wkI2mBHjg6_0C6FOJpo0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212765577148-nrg4bme4ps7c0vae6g4bepog9ep7fkt0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

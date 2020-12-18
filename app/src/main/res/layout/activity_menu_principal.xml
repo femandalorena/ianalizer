@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:weightSum="10"
+    tools:context=".example.ianalizer.MenuActivity">
+
+<ImageView
+        android:id="@+id/logo"
+        android:layout_width="155dp"
+    android:layout_margin="10dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:background="@drawable/ianalizer"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_centerInParent="true"
+    android:layout_height="340dp">
+
+    <ImageView
+        android:id="@+id/uploadedImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:background="@drawable/rounded_image"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SUBA UNA IMAGEN PARA COMENZAR"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_image"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        />
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_height="wrap_content">
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_below="@id/uploadedImage"
+        android:layout_height="75dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/camaraButton"
+        android:background="@drawable/camara"
+             android:layout_marginStart="100dp"
+        tools:ignore="NotSibling" />
+
+    <ImageButton
+        android:id="@+id/galeriaButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/uploadedImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/galeria"
+        android:scaleType="fitCenter"
+        tools:ignore="NotSibling" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/imagenes"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:text="RECONOCER IMAGEN"
+        android:layout_gravity="center"
+        android:background="@drawable/round_button"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rostros"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_margin="9dp"
+        android:background="@drawable/round_button"
+        android:text="RECONOCER ROSTROS"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/texto"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_button"
+        android:text="RECONOCER TEXTO"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        />
+
+</LinearLayout>

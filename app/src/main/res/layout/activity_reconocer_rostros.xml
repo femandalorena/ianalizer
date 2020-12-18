@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:weightSum="10"
+    tools:context=".example.ianalizer.ImageRecognizeActivity">
+
+<ImageView
+        android:id="@+id/logo"
+        android:layout_width="140dp"
+    android:layout_margin="10dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:background="@drawable/ianalizer"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_height="440dp">
+
+        <ImageView
+            android:id="@+id/recognizedImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:background="@drawable/rounded_image"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/descripcionRostros"
+        android:layout_width="match_parent"
+        android:paddingStart="35dp"
+        android:textColor="@color/white"
+        android:paddingEnd="35dp"
+        android:textSize="20dp"
+        android:paddingTop="20dp"
+        android:layout_height="70dp">
+
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/guardarRostros"
+            android:layout_width="130dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_button"
+            android:text="GUARDAR"
+            android:layout_marginStart="60dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/compartirRostros"
+            android:layout_width="130dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/round_button"
+            android:text="COMPARTIR"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</LinearLayout>
