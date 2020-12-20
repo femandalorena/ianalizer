@@ -28,15 +28,13 @@ public class FaceRecognizeActivity extends AppCompatActivity {
     Bitmap bmp, carasReconocidas;
     ImageView imagen;
     int contador;
-    Button guardarRostro, copiarRegistroRostro;
+    Button copiarRegistroRostro;
     TextView descripcion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(this.getResources().getColor(R.color.colorAccentLight));
         setContentView(R.layout.activity_reconocer_rostros);
-        guardarRostro = (Button) findViewById(R.id.guardarRostros);
-        copiarRegistroRostro = (Button) findViewById(R.id.copiarRostros);
         descripcion = (TextView) findViewById(R.id.descripcionRostros);
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
@@ -52,14 +50,8 @@ public class FaceRecognizeActivity extends AppCompatActivity {
         boxPaint.setStyle(Paint.Style.STROKE);
         procesar( canvas, boxPaint);
         descripcion.setText(cantidad());
+        copiarRegistroRostro = (Button) findViewById(R.id.copiarRostros);
 
-        guardarRostro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    //TODO
-            }
-        })
-        ;
         copiarRegistroRostro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

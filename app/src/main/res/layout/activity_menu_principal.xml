@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/suba_una_imagen_para_comenzar_asegurate_que_no_sea_muy_peque_a"
+        android:text="SUBA UNA IMAGEN PARA EMPEZAR. POR FAVOR, TENGA CUIDADO CON EL TAMAÑO"
         android:textColor="@color/white"
         android:background="@drawable/rounded_image"
         android:layout_marginStart="35dp"
