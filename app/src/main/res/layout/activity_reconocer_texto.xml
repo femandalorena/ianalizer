@@ -38,7 +38,7 @@
     <ScrollView
         android:id="@+id/SCROLLER_ID"
         android:layout_width="fill_parent"
-        android:layout_height="270dp"
+        android:layout_height="200dp"
         android:scrollbars="vertical"
         android:fillViewport="true">
 
@@ -47,6 +47,7 @@
         android:layout_width="match_parent"
         android:paddingStart="35dp"
         android:textColor="@color/white"
+        android:text=""
         android:textSize="17dp"
         android:paddingEnd="35dp"
         android:paddingTop="20dp"
@@ -54,6 +55,21 @@
 
     </TextView>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/contadorTexto"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:paddingStart="35dp"
+        android:textColor="@color/white"
+        android:paddingEnd="35dp"
+        android:textSize="17dp"
+        android:textAllCaps="true"
+        android:paddingTop="20dp"
+        android:layout_height="70dp">
+
+    </TextView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
