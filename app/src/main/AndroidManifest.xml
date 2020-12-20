@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com">
     <meta-data
-        android:name= "com.google.android.gms.vision.DEPENDENCIES"
-        android:value= "face" />
+        android:name= "com.google.android.gms.vision.DEPENDENCIES, com.google.firebase.ml.vision.DEPENDENCIES"
+        android:value= "face, label" />
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
