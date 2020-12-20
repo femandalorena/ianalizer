@@ -10,8 +10,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
@@ -25,9 +23,6 @@ import com.R;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
-
-import java.io.File;
-import java.io.FileOutputStream;
 
 public class FaceRecognizeActivity extends AppCompatActivity {
     Bitmap bmp, carasReconocidas;
@@ -61,8 +56,7 @@ public class FaceRecognizeActivity extends AppCompatActivity {
         guardarRostro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    saveToGallery(carasReconocidas, "naaaaa");
-
+                    //TODO
             }
         })
         ;
@@ -113,25 +107,6 @@ public class FaceRecognizeActivity extends AppCompatActivity {
             texto="Se reconocieron " + Integer.toString(contador) + " personas.";
         }
         return texto;
-    }
-
-    private void saveToGallery(Bitmap bitmatFile, String image_name) {
-
-        String root = Environment.getExternalStorageDirectory().toString();
-        File myDir = new File(root);
-        myDir.mkdirs();
-        String fname = "Image-" + image_name+ ".jpg";
-        File file = new File(myDir, fname);
-        if (file.exists()) file.delete();
-        Log.i("LOAD", root + fname);
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            bitmatFile.compress(Bitmap.CompressFormat.JPEG, 90, fos);
-            fos.flush();
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

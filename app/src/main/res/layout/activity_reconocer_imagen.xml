@@ -60,13 +60,13 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/guardarImagen"
+            android:id="@+id/traducirImagen"
             android:layout_width="140dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/round_button"
-            android:text="GUARDAR IMAGEN"
+            android:text="TRADUCIR SALIDA"
             android:layout_marginStart="45dp"
             android:textAlignment="center"
             android:textColor="@android:color/white" />

@@ -30,26 +30,28 @@ import java.util.List;
 public class ImageRecognizeActivity extends AppCompatActivity {
     Bitmap bmp;
     ImageView imagen;
-    Button guardarImagen, copiarImagen;
+    boolean espanol = false;
+    Button traducirSalida, copiarImagen;
     TextView descripcion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(this.getResources().getColor(R.color.colorAccentLight));
         setContentView(R.layout.activity_reconocer_imagen);
-        guardarImagen = (Button) findViewById(R.id.guardarImagen);
+        traducirSalida = (Button) findViewById(R.id.traducirImagen);
         copiarImagen = (Button) findViewById(R.id.copiarImagen);
         descripcion = (TextView) findViewById(R.id.descripcionImagen);
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         this.imagen = (ImageView) this.findViewById(R.id.recognizedImage);
         imagen.setImageBitmap(bmp);
-        identificar();
+        identificar(espanol);
 
-        guardarImagen.setOnClickListener(new View.OnClickListener() {
+        traducirSalida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //TODO
+                espanol = !espanol;
+            identificar(espanol);
             }
         })
         ;
@@ -65,18 +67,24 @@ public class ImageRecognizeActivity extends AppCompatActivity {
         ;
     }
 
-    public void identificar () {
+    public void identificar (boolean espanol) {
         InputImage image = InputImage.fromBitmap(bmp, 0);
         ImageLabeler labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS);
         labeler.process(image)
                 .addOnSuccessListener(new OnSuccessListener<List<ImageLabel>>() {
                     @Override
                     public void onSuccess(List<ImageLabel> labels) {
+                        descripcion.setText("");
                         for (ImageLabel label : labels) {
                             String text = label.getText();
                             float confidence = label.getConfidence() * 100;
                             String conf2 = String.format("%.02f", confidence);
-                            translateText(text, conf2);
+                            if (espanol){
+                                translateText(text, conf2);
+                            } else {
+                                descripcion.append(text + ": " +conf2 + "% accuracity. \n" );
+                            }
+
                         }
                     }
                 })
