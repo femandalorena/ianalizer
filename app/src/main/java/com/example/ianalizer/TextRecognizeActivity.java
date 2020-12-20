@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
@@ -44,7 +46,7 @@ public class TextRecognizeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (! descripcion.getText().toString().equals("")) {
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(getApplicationContext().CLIPBOARD_SERVICE);
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("Texto reconocido", descripcion.getText().toString());
                     clipboard.setPrimaryClip(clip);
                     Toast.makeText(getApplicationContext(), "copiado", Toast.LENGTH_SHORT).show();

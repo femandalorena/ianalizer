@@ -1,5 +1,7 @@
 package com.example.ianalizer;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,7 +9,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -32,7 +33,7 @@ public class FaceRecognizeActivity extends AppCompatActivity {
     Bitmap bmp, carasReconocidas;
     ImageView imagen;
     int contador;
-    Button guardarRostro, compartirRostro;
+    Button guardarRostro, copiarRegistroRostro;
     TextView descripcion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class FaceRecognizeActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(this.getResources().getColor(R.color.colorAccentLight));
         setContentView(R.layout.activity_reconocer_rostros);
         guardarRostro = (Button) findViewById(R.id.guardarRostros);
-        compartirRostro = (Button) findViewById(R.id.compartirRostros);
+        copiarRegistroRostro = (Button) findViewById(R.id.copiarRostros);
         descripcion = (TextView) findViewById(R.id.descripcionRostros);
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
@@ -65,10 +66,13 @@ public class FaceRecognizeActivity extends AppCompatActivity {
             }
         })
         ;
-        compartirRostro.setOnClickListener(new View.OnClickListener() {
+        copiarRegistroRostro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             share();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Registro de rostros ", descripcion.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplicationContext(), "copiado", Toast.LENGTH_SHORT).show();
             }
         })
         ;
@@ -125,25 +129,6 @@ public class FaceRecognizeActivity extends AppCompatActivity {
             bitmatFile.compress(Bitmap.CompressFormat.JPEG, 90, fos);
             fos.flush();
             fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void share(){
-
-        try {
-            File file = new File(this.getExternalCacheDir(),"logicchip.png");
-            FileOutputStream fOut = new FileOutputStream(file);
-            carasReconocidas.compress(Bitmap.CompressFormat.PNG, 100, fOut);
-            fOut.flush();
-            fOut.close();
-            file.setReadable(true, false);
-            final Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-            intent.setType("image/png");
-            startActivity(Intent.createChooser(intent, "Share image via"));
         } catch (Exception e) {
             e.printStackTrace();
         }
